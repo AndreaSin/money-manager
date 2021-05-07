@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import NumberFormat from 'react-number-format';
+import PropType from 'prop-types';
 
 const AddExpenseComponent = ({item, onAdd}) => {
 
@@ -10,6 +11,7 @@ const AddExpenseComponent = ({item, onAdd}) => {
 
     const onSubmit = (e) => {
         e.preventDefault();
+        console.log(price)
         onAdd({expense,date,price});
     }
 
@@ -23,20 +25,19 @@ const AddExpenseComponent = ({item, onAdd}) => {
                         value={expense} onChange={(e)=> setExpense(e.target.value)} required/>
                     </div>
                     <div className=''>
-                    <label>Categoria</label>
+                    <label>Utilità spesa</label>
                     <select id="cars" name="cars" required onChange={(e)=> setDate(e.target.value)}>
                         <option value=""></option>
-                        <option value="cibo">Cibo</option>
-                        <option value="trasporti">Trasporti</option>
-                        <option value="bollette">Bollette</option>
-                        <option value="svago">Svago</option>
+                        <option value="utile">Utile</option>
+                        <option value="forse">Forse</option>
+                        <option value="inutile">Inutile</option>
                     </select>
                     </div>
                     <div className=''>
                     <label>Prezzo</label>
-                    <NumberFormat required value={price} thousandSeparator={true} suffix={'€'} onValueChange={(values) => {
+                    <NumberFormat isNumericString={false} required value={price} thousandSeparator={true} suffix={'€'} onValueChange={(values) => {
                         const {formattedValue, value} = values;
-                        setPrice(formattedValue)
+                        setPrice(parseInt(value, 10))
                     }}/>
                     </div>
                     <input className='button' type='submit' value='SALVA'  />
@@ -44,5 +45,12 @@ const AddExpenseComponent = ({item, onAdd}) => {
             </div>    
     )
 }
+
+AddExpenseComponent.propType = {
+    expense: PropType.string,
+    date: PropType.string,
+    price: PropType.number
+}
+
 
 export default AddExpenseComponent

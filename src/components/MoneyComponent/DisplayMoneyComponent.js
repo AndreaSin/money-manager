@@ -1,10 +1,11 @@
 import React from 'react'
+import { PieChart } from 'react-minimal-pie-chart';
 
-function DisplayMoneyComponent() {
+const DisplayMoneyComponent = ({total}) => {
     return (
         <>
             <div className="display">
-                <p>display</p>
+                <p className="display-number">{total}</p>
             </div>
         </>
     )

@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
 
 * {
   box-sizing: border-box;
@@ -11,6 +12,9 @@ body {
   font-family: 'Poppins', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  width:100%;
+  overflow-x:hidden;
+  overflow-y:hidden;
 }
 
 link {
@@ -19,34 +23,38 @@ link {
 }
 
 .container {
-  max-width: 500px;
+  max-width: 800px;
   margin: 30px auto;
   overflow: auto;
-  min-height: 780px;
-  border: 1px solid steelblue;
+  height: 100vh;
   padding: 30px;
-  border-radius: 3px;
 }
 
 .display{
-  max-width: 460px;
-  margin: 0px auto;
+  margin: 0px auto 20px auto;
   overflow: auto;
-  height: 200px;
-  border: 1px solid steelblue;
-  padding: 20px;
-  border-radius: 3px;
+  height: 320px;
+  padding: 10px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.display-number {
+  font-family: 'Russo One', sans-serif;
+  text-align: center;
+  font-size: 64px;
+}
+
+.display-number::after {
+  content:"€";
 }
 
 .money-list {
   max-width: 100%;
   margin: 0px auto;
-  overflow: auto;
-  height: 370px;
   margin-top: 30px;
-  border: 1px solid steelblue;
   padding: 20px;
-  border-radius: 3px;
 }
 
 .money-form {
@@ -55,9 +63,7 @@ link {
   overflow: auto;
   height: 370px;
   margin-top: 30px;
-  border: 1px solid steelblue;
   padding: 20px;
-  border-radius: 3px;
 }
 
 .money-form label {
@@ -68,19 +74,7 @@ link {
 .money-form input,.money-form select {
   width: 100%;
   height: 40px;
-  margin: 5px 0;
   font-size: 17px;
-}
-
-footer {
-  max-width: 460px;
-  height: 20px;
-  overflow: auto;
-  margin-top: 30px;
-  text-align: center;
-  border: 1px solid steelblue;
-  padding: 20px;
-  border-radius: 3px;
 }
 
 .list-container {  
@@ -90,19 +84,37 @@ footer {
 }
 
 .expense {
-  background:darkslategrey;
   color:white;
   margin: 5px;
   padding: 10px 20px;
-  border-radius: 7px;
   display: grid;
   grid-template-columns: auto auto;
+}
+
+.utile {
+  background-color: #006600;
+}
+
+.forse {
+  background-color: #FFA500;
+}
+
+.inutile {
+  background-color: 	#cc0000;
 }
 
 .buttonsContainer {
   display: flex;
   flex-direction: row;
   justify-content: center ;
+}
+
+.moneyExpense {
+  text-align: right;
+}
+
+.moneyExpense::after{
+  content:"€";
 }
 
 .button {
@@ -114,7 +126,7 @@ footer {
   text-decoration: none;
   font-size: 14px;
   padding: 10px 14px;
-  margin: 5px;
+  margin: 30px 5px 0px 0px;
 }
 
 .button:active {
